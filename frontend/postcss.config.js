@@ -6,7 +6,7 @@ module.exports = {
     plugins: [
         autoprefixer(
             {
-                browsers: ["last 10 versions", "not OperaMini > 0", "not UCAndroid > 0", "not QQAndroid > 0"]
+                browsers: ["last 2 versions", "not OperaMini > 0", "not UCAndroid > 0", "not QQAndroid > 0"]
             }
         )
     ]
