@@ -4,7 +4,9 @@
   "description": "An Expense Manager App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config webpack/webpack.dev.js --color --progress",
+    "dev": "webpack --config webpack/webpack.dev.js --profile --progress -w",
+    "prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --profile --progress"
   },
   "keywords": [
     "React",
