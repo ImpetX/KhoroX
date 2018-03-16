@@ -4,7 +4,7 @@
   "description": "An Expense Manager App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack/webpack.dev.js --color --progress",
+    "start": "nodemon app.js",
     "dev": "webpack --config webpack/webpack.dev.js --profile --progress -w",
     "prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --profile --progress"
   },
@@ -20,8 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
+    "express": "^4.16.3",
     "object-path": "^0.11.4",
     "prop-types": "^15.6.0",
+    "pug": "^2.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -47,6 +49,7 @@
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
+    "nodemon": "^1.17.2",
     "postcss": "^6.0.17",
     "postcss-loader": "^2.1.0",
     "react-hot-loader": "^3.1.3",
