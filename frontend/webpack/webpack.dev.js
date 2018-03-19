@@ -3,8 +3,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 var merge = require('webpack-merge');
 var common = require('./webpack.common.js');
 
@@ -72,14 +70,7 @@ var config = merge(common, {
         new webpack.HotModuleReplacementPlugin(),
 
         // prints more readable module names in the browser console on HMR updates
-        new webpack.NamedModulesPlugin(),
-
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            alwaysWriteToDisk: true
-        }),
-
-        new HtmlWebpackHarddiskPlugin()
+        new webpack.NamedModulesPlugin()
     ]
 });
 

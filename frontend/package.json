@@ -4,7 +4,8 @@
   "description": "An Expense Manager App",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "concurrently \"npm run dev\" \"npm run nodemon\"",
+    "nodemon": "nodemon app.js",
     "dev": "webpack --config webpack/webpack.dev.js --profile --progress -w",
     "prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --profile --progress"
   },
@@ -41,6 +42,8 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.9",
     "eslint": "^4.17.0",
     "eslint-loader": "^1.9.0",
