@@ -11,6 +11,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/about', (req, res) => {
+    res.render('index');
+});
+
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.listen(app.get('port'), () => {
