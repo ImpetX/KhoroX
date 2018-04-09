@@ -1,27 +1,12 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React, {Component} from 'react';
 
-const List = ({articles}) => {
-    return (
-        <div>
-            <h2>Home</h2>
-            <ul>
-                {articles.map(el => (
-                    <li key={el.id}>
-                        {el.title}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-};
-
-const mapStateToProps = state => {
-    return {
-        articles: state.articles
+export default class Home extends Component {
+    render() {
+        return (
+            <div>
+                <h2>Home</h2>
+            </div>
+        );
     }
-};
+}
 
-const Home = connect(mapStateToProps)(List);
-
-export default Home;
