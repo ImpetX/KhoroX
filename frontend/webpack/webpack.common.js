@@ -34,7 +34,8 @@ var config = {
         path: path.resolve(__dirname, '../public'),
         filename: '[name].js',
         // chunkFilename is required for CommonsChunkPlugin
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
+        publicPath: '/assets/' // match the output `publicPath`
     },
 
     module: {

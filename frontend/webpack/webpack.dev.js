@@ -15,17 +15,10 @@ var config = merge(common, {
     */
     devtool: 'source-map',
 
-    devServer: {
-        hot: true,  // enable HMR on the server
-        contentBase: path.resolve(__dirname, '../public'), // match the output path
-        publicPath: '/' // match the output `publicPath`
-    },
-
     entry: {
         main: [
             'react-hot-loader/patch',  // activate HMR for React
-            'webpack-dev-server/client?http://localhost:8080',  // bundle the client for webpack-dev-server and connect to the provided endpoint
-            'webpack/hot/only-dev-server',  // bundle the client for hot reloading for successful updates
+            'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
             path.resolve(__dirname, '../src/index.jsx')
         ]
     },

@@ -1,14 +1,31 @@
-import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
 import 'babel-polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {AppContainer} from 'react-hot-loader'
 
 import store from './store';
 import App from './components/App';
 
-render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
-);
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Provider store={store}>
+                <Component />
+            </Provider>
+        </AppContainer>,
+        document.getElementById('app'),
+    )
+  }
+  
+render(App);
+  
+  // Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./components/App', () => {
+      // if you are using harmony modules ({modules:false})
+      render(App);
+      // in all other cases - re-require App manually
+      render(require('./components/App'));
+    })
+}
