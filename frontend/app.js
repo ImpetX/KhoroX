@@ -30,7 +30,7 @@ app.use(webpackHotMiddleware(compiler, {
 
 app.use('/assets', express.static(path.join(__dirname, '/public')));
 
-app.get('(/|/about)', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index');
 });
 
