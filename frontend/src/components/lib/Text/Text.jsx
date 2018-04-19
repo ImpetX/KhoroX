@@ -7,7 +7,7 @@ import './styles/Text';
 const Text = (props) => {
     const {label,
         fontSize} = props;
-    
+
     const classes  = classNames({
         'Text--12px': fontSize === '12',
         'Text--14px': fontSize === '14',

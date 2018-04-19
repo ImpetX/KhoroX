@@ -3,12 +3,12 @@ import React from 'react';
 import {NavigationBar, PageContainer} from './layout';
 
 const App = () => (
-   <div>
+    <div>
         <NavigationBar />
         <PageContainer>
             <h2>APP</h2>
         </PageContainer>
-   </div>
+    </div>
 );
 
 export default App;

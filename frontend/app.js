@@ -18,7 +18,7 @@ app.use(webpackDevMiddleware(compiler, {
     publicPath: '/assets/',
     stats: {
         colors: true,
-      },
+    },
     historyApiFallback: true,
 }));
 
@@ -26,7 +26,7 @@ app.use(webpackHotMiddleware(compiler, {
     log: console.log,
     path: '/__webpack_hmr',
     heartbeat: 10 * 1000,
-  }));
+}));
 
 app.use('/assets', express.static(path.join(__dirname, '/public')));
 
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('*', (req, res, next) => {
     const err = new Error((`${req.ip} tried to reach ${req.originalUrl}`));
-    
+
     err.statusCode = 404;
     err.shouldRedirect = true;
     next(err);
