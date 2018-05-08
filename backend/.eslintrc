@@ -1,0 +1,31 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+
+    "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true
+    },
+
+    "rules": {
+        "no-console": 0,
+        "arrow-spacing": [2, {
+            "before": true,
+            "after": true
+            }
+        ],
+        "no-var": 2,
+        "no-trailing-spaces": 2,
+        "indent": [2, 4, {
+            "SwitchCase": 1
+            }
+        ],
+        "object-curly-spacing": [2, "never"],
+        "eol-last": ["error", "always"],
+        "no-bitwise": [2],
+        "no-invalid-regexp": 2,
+        "no-unreachable": 2
+    }
+}

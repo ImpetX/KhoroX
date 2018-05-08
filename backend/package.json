@@ -4,7 +4,9 @@
   "description": "An Expense Manager App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --inspect app.js",
+    "eslint": "eslint app.js --ext .js src",
+    "eslint:autofix": "eslint app.js --fix --ext .js src"
   },
   "keywords": [
     "Node",
@@ -13,5 +15,12 @@
     "Mongoose"
   ],
   "author": "Kamal Sharif",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "nodemon": "^1.17.4"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
