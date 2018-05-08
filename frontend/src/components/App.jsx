@@ -1,14 +1,25 @@
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 
 import {NavigationBar, PageContainer} from './layout';
+import ExpenseAdd from './expense/Add';
 
 const App = () => (
-    <div>
-        <NavigationBar />
-        <PageContainer>
-            <h2>APP</h2>
-        </PageContainer>
-    </div>
+    <Router>
+        <div>
+            <NavigationBar />
+            <PageContainer>
+                <Route
+                    exact
+                    path='/'
+                    component={ExpenseAdd} />
+            </PageContainer>
+        </div>
+    </Router>
 );
 
 export default App;
