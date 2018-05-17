@@ -2,11 +2,11 @@
   "name": "khorox",
   "version": "1.0.0",
   "description": "An Expense Manager App",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon --inspect app.js",
-    "eslint": "eslint app.js --ext .js src",
-    "eslint:autofix": "eslint app.js --fix --ext .js src"
+    "start": "nodemon --inspect=9001 server.js",
+    "eslint": "eslint server.js --ext .js src",
+    "eslint:autofix": "eslint server.js --fix --ext .js src"
   },
   "keywords": [
     "Node",
@@ -21,6 +21,9 @@
     "nodemon": "^1.17.4"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.1"
   }
 }

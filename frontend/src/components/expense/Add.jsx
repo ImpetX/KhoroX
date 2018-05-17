@@ -26,8 +26,9 @@ export default class ExpenseAdd extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    getInputValue(id) {
-        return document.getElementById(id).value.trim();
+    getInputValue(id, shouldConvertToNumber = false) {
+        const value = document.getElementById(id).value.trim();
+        return shouldConvertToNumber ?  Number(value) : value;
     }
 
     handleSubmit(evt) {
@@ -35,8 +36,8 @@ export default class ExpenseAdd extends Component {
 
         const payload = {
             itemName:  this.getInputValue('itemName'),
-            itemPrice: this.getInputValue('itemPrice'),
-            amountPurchased: this.getInputValue('amountPurchased')
+            itemPrice: this.getInputValue('itemPrice', true),
+            amountPurchased: this.getInputValue('amountPurchased', true)
         };
 
         this.props.dispatch({
