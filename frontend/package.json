@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run nodemon\"",
-    "nodemon": "nodemon --inspect=9000 app.js",
+    "nodemon": "nodemon --inspect=9010 app.js",
     "dev": "webpack --config webpack/webpack.dev.js --profile --progress -w",
     "prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --profile --progress",
     "eslint": "eslint app.js --ext .jsx --ext .js src",
