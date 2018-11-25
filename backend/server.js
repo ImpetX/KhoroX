@@ -12,6 +12,7 @@ app.set('views', `${__dirname}/views`);
 app = serverConfig(app);
 
 mongoose.connect(config.DB_URL);
+mongoose.set('debug', true);
 
 mongoose.connection.on('open', () => {
     console.log(`mongoose connected at ${config.DB_URL}`);
