@@ -26,6 +26,13 @@
         "eol-last": ["error", "always"],
         "no-bitwise": [2],
         "no-invalid-regexp": 2,
-        "no-unreachable": 2
+        "no-unreachable": 2,
+        "comma-dangle": ["error", {
+            "arrays": "only-multiline",
+            "objects": "only-multiline",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore"
+        }]
     }
 }
