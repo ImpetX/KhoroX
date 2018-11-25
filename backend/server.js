@@ -11,7 +11,7 @@ app.set('views', `${__dirname}/views`);
 
 app = serverConfig(app);
 
-mongoose.connect(config.DB_URL);
+mongoose.connect(config.DB_URL, {useNewUrlParser: true});
 mongoose.set('debug', true);
 
 mongoose.connection.on('open', () => {
