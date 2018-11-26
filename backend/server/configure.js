@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 
 const routes = require('./routes');
+const customErrorHandler = require('./errorhandler');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -26,7 +27,12 @@ module.exports = app => {
         saveUninitialized: false,
     }));
 
+    if(!isProduction) {
+        app.use(errorHandler());
+    }
+
     routes(app);
+    customErrorHandler(app, isProduction);
 
     return app;
 };
