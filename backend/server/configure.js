@@ -11,7 +11,7 @@ const customErrorHandler = require('./errorhandler');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000',
 };
 
 module.exports = app => {
