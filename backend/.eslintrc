@@ -28,10 +28,10 @@
         "no-invalid-regexp": 2,
         "no-unreachable": 2,
         "comma-dangle": ["error", {
-            "arrays": "only-multiline",
-            "objects": "only-multiline",
-            "imports": "never",
-            "exports": "never",
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
             "functions": "ignore"
         }]
     }
