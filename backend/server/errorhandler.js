@@ -9,7 +9,7 @@ module.exports = (app, isProduction) => {
                 erros: {
                     message: err.message,
                     error: err,
-                }
+                },
             });
         });
     }
@@ -21,7 +21,7 @@ module.exports = (app, isProduction) => {
             errors: {
                 message: err.message,
                 error: {},
-            }
+            },
         });
     });
 };
