@@ -36,6 +36,7 @@
         }],
         "prefer-spread": "error",
         "prefer-template": "error",
-        "semi": 2
+        "semi": 2,
+        "global-require": "error"
     }
 }
