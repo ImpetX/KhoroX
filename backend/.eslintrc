@@ -33,6 +33,9 @@
             "imports": "always-multiline",
             "exports": "always-multiline",
             "functions": "ignore"
-        }]
+        }],
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "semi": 2
     }
 }
