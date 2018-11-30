@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const expense = require('../controllers/expense');
+const expense = require('../../controllers/expense');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();
