@@ -9,7 +9,7 @@ module.exports = {
         const Expense = new Models.Expense({
             itemName,
             itemPrice,
-            amountPurchased
+            amountPurchased,
         });
 
         Expense.save()
@@ -17,10 +17,10 @@ module.exports = {
                 return res.status(200).json({
                     itemName,
                     itemPrice,
-                    amountPurchased
+                    amountPurchased,
                 });
             }).catch(error => {
                 return res.status(500).json({error});
             });
-    }
-}
+    },
+};
