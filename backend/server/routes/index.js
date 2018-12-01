@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+require('./login');
+require('./current');
 const expense = require('../../controllers/expense');
 
 const router = express.Router();
