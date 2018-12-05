@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const router = express.router();
+const router = express.Router();
 const auth = require('../../auth');
 
 router.post('/login', auth.optional, (req, res, next) => {
