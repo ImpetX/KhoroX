@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
-const Users = mongoose.model('Users');
+const Users = require('../../users/models');
 
 passport.use(new LocalStrategy({
     usernameField: 'user[email]',
@@ -15,7 +14,7 @@ passport.use(new LocalStrategy({
                     errors: {
                         'email or password': 'is invalid',
                     },
-                })
+                });
             }
 
             return done(null, user);

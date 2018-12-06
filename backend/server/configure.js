@@ -1,5 +1,3 @@
-const path = require('path');
-const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const morgan = require('morgan');
@@ -7,6 +5,7 @@ const errorHandler = require('errorhandler');
 
 const routes = require('./routes');
 const customErrorHandler = require('./errorhandler');
+require('../modules/auth/config/passport');
 
 const isProduction = process.env.NODE_ENV === 'production';
 

@@ -9,12 +9,10 @@ let app = express();
 app.set('port', process.env.PORT || 3001);
 app.set('views', `${__dirname}/views`);
 
-require('./models/users');
-require('./auth/passport');
-app = serverConfig(app);
-
 mongoose.connect(config.DB_URL, {useNewUrlParser: true});
 mongoose.set('debug', true);
+
+app = serverConfig(app);
 
 mongoose.connection.on('open', () => {
     // eslint-disable-next-line no-console

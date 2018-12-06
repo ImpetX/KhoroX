@@ -1,11 +1,6 @@
-const express = require('express');
-const mongoose = require('mongoose');
 const passport = require('passport');
 
-const router = express.Router();
-const auth = require('../../auth');
-
-router.post('/login', auth.optional, (req, res, next) => {
+function login(req, res, next) {
     const {body: {user}} = req;
 
     if(!user.email) {
@@ -40,4 +35,6 @@ router.post('/login', auth.optional, (req, res, next) => {
 
         return status(400).info;
     })(req, res, next);
-});
+}
+
+module.exports = login;
