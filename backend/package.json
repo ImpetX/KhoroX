@@ -4,7 +4,7 @@
   "description": "An Expense Manager App",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --inspect=9001 server.js",
+    "start": "nodemon --inspect=9050 server.js",
     "eslint": "eslint server.js --ext .js src",
     "eslint:autofix": "eslint server.js --fix --ext .js src"
   },
