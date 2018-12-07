@@ -5,7 +5,7 @@ const errorHandler = require('errorhandler');
 
 const routes = require('./routes');
 const customErrorHandler = require('./errorhandler');
-require('../modules/auth/config/passport');
+const passport = require('../modules/auth/config/passport');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -25,6 +25,8 @@ module.exports = app => {
         resave: false,
         saveUninitialized: false,
     }));
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     if(!isProduction) {
         app.use(errorHandler());
