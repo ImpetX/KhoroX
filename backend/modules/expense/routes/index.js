@@ -5,8 +5,8 @@ const expense = require('../controllers');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();
-const urlencodeParder = bodyParser.urlencoded({extended: true});
+const urlencodeParser = bodyParser.urlencoded({extended: true});
 
-router.post('/', jsonParser, urlencodeParder, expense.create);
+router.post('/', jsonParser, urlencodeParser, expense.create);
 
 module.exports = router;
