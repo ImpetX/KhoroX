@@ -2,6 +2,7 @@ const cors = require('cors');
 const session = require('express-session');
 const morgan = require('morgan');
 const errorHandler = require('errorhandler');
+const bodyParser = require('body-parser');
 
 const routes = require('./routes');
 const customErrorHandler = require('./errorhandler');
@@ -17,6 +18,8 @@ module.exports = app => {
     app.options('*', cors(corsOptions));
     app.use(cors(corsOptions));
     app.use(morgan('dev'));
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
     app.use(session({
         secret: 'auth',
         cookie: {
