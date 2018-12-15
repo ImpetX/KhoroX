@@ -1,14 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
-const expense = require('../controllers/expense');
+const authRoute = require('../modules/users/routes');
+const expenseRoute= require('../modules/expense/routes');
 
 const router = express.Router();
-const jsonParser = bodyParser.json();
-const urlencodeParder = bodyParser.urlencoded({extended: true});
 
 module.exports = app => {
-    router.post('/', jsonParser, urlencodeParder, expense.create);
+    router.use(authRoute);
+    router.use(expenseRoute);
 
     app.use(router);
 };
