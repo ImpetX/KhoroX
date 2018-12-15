@@ -1,9 +1,11 @@
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 const User = require('../models');
+const generateJWT = require('./generateJWT');
 
 function signup(req, res) {
-    const {email, password} = req;
+    const {email, password} = req.body;
 
     bcrypt
         .hash(password, 10)
@@ -16,16 +18,23 @@ function signup(req, res) {
 
             return user
                 .save()
-                .then(() => res
-                    .status(201)
-                    .json({
-                        user: user.toAuthJSON(),
-                    }));
+                .then(result => {
+                    const {id, email} = result;
+                    res
+                        .status(201)
+                        .json({
+                            user: {
+                                id,
+                                email,
+                                token: generateJWT(result.id, result.email),
+                            },
+                        });
+                })
         })
         .catch(err => res
             .status(500)
             .json({
-                error: err,
+                error: err.message,
             }));
 }
 
