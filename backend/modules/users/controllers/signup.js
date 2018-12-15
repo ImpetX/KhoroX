@@ -24,7 +24,7 @@ function signup(req, res) {
                         .status(201)
                         .json({
                             user: {
-                                id,
+                                _id: id,
                                 email,
                                 token: generateJWT(id, email),
                             },
