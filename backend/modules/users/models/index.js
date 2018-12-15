@@ -5,20 +5,23 @@ const jwt = require('jsonwebtoken');
 const {Schema} = mongoose;
 
 const UserSchema = new Schema({
-    email: String,
-    hash: String,
-    salt: String,
+    _id: mongoose.Schema.Types.ObjectId,
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
 });
 
-UserSchema.methods.setPassword  = function(password) {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};
-
 UserSchema.methods.validatePassword = function(password) {
-    const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+    const hashedPassword = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 
-    return this.hash === hash;
+    return this.password === hashedPassword;
 };
 
 UserSchema.methods.generateJWT = function() {
@@ -42,4 +45,4 @@ UserSchema.methods.toAuthJSON = function() {
     };
 };
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
