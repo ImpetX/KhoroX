@@ -9,7 +9,10 @@ let app = express();
 app.set('port', process.env.PORT || 3001);
 app.set('views', `${__dirname}/views`);
 
-mongoose.connect(config.DB_URL, {useNewUrlParser: true});
+mongoose.connect(config.DB_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+});
 mongoose.set('debug', true);
 
 app = serverConfig(app);
