@@ -12,7 +12,7 @@ function signup(req, res) {
         .then(hash => {
             const user = new User({
                 _id: new mongoose.Types.ObjectId(),
-                email: email,
+                email,
                 password: hash,
             });
 
@@ -26,10 +26,10 @@ function signup(req, res) {
                             user: {
                                 id,
                                 email,
-                                token: generateJWT(result.id, result.email),
+                                token: generateJWT(id, email),
                             },
                         });
-                })
+                });
         })
         .catch(err => res
             .status(500)
