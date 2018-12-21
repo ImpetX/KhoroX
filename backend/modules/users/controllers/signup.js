@@ -35,12 +35,17 @@ function signup(req, res) {
                                     .status(201)
                                     .json({
                                         user: {
-                                            _id: id,
+                                            id: id,
                                             email,
                                             token: generateJWT(id, email),
                                         },
                                     });
-                            });
+                            })
+                            .catch(err => res
+                                .status(500)
+                                .json({
+                                    error: err.message,
+                                }));;
                     })
                     .catch(err => res
                         .status(500)
@@ -48,7 +53,12 @@ function signup(req, res) {
                             error: err.message,
                         }));
             }
-        });
+        })
+        .catch(err => res
+            .status(500)
+            .json({
+                error: err.message,
+            }));
 }
 
 module.exports = signup;
