@@ -40,15 +40,28 @@ function signup(req, res) {
                                             token: generateJWT(id, email),
                                         },
                                     });
-                            });
+                            })
+                            .catch(err => res
+                                .status(500)
+                                .json({
+                                    error: err.message,
+                                })
+                            );
                     })
                     .catch(err => res
                         .status(500)
                         .json({
                             error: err.message,
-                        }));
+                        })
+                    );
             }
-        });
+        })
+        .catch(err => res
+            .status(500)
+            .json({
+                error: err.message,
+            })
+        );
 }
 
 module.exports = signup;

@@ -9,6 +9,8 @@
         "mocha": true
     },
 
+    "plugins": ["promise"],
+
     "rules": {
         "no-console": "error",
         "arrow-spacing": ["error", {
@@ -38,6 +40,7 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "semi": "error",
-        "global-require": "error"
+        "global-require": "error",
+        "promise/catch-or-return": "error"
     }
 }
