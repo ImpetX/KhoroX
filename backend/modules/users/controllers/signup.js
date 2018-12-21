@@ -45,20 +45,23 @@ function signup(req, res) {
                                 .status(500)
                                 .json({
                                     error: err.message,
-                                }));;
+                                })
+                            );
                     })
                     .catch(err => res
                         .status(500)
                         .json({
                             error: err.message,
-                        }));
+                        })
+                    );
             }
         })
         .catch(err => res
             .status(500)
             .json({
                 error: err.message,
-            }));
+            })
+        );
 }
 
 module.exports = signup;
