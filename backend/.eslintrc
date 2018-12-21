@@ -9,8 +9,6 @@
         "mocha": true
     },
 
-    "plugins": ["promise"],
-
     "rules": {
         "no-console": "error",
         "arrow-spacing": ["error", {
