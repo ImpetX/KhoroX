@@ -5,8 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon --inspect=9050 server.js",
-    "eslint": "eslint server.js --ext .js src",
-    "eslint:autofix": "eslint server.js --fix --ext .js src"
+    "eslint": "eslint server.js --ext .js modules",
+    "eslint:autofix": "eslint server.js --fix --ext .js modules",
+    "test": "jest --colors --verbose",
+    "test:watch": "jest --colors --verbose --watch",
+    "test:coverage": "jest --collectCoverageFrom=modules/**.js --coverage modules"
   },
   "keywords": [
     "Node",
@@ -18,7 +21,9 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^4.19.1",
+    "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-promise": "^4.0.1",
+    "jest": "^23.6.0",
     "nodemon": "^1.17.4"
   },
   "dependencies": {
