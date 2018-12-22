@@ -6,10 +6,11 @@
     "env": {
         "browser": true,
         "node": true,
-        "mocha": true
+        "mocha": true,
+        "jest/globals": true
     },
 
-    "plugins": ["promise"],
+    "plugins": ["promise", "jest"],
 
     "rules": {
         "no-console": "error",
