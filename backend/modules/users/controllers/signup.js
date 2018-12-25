@@ -22,7 +22,6 @@ function signup(req, res) {
                     .hash(password, 10)
                     .then(hash => {
                         const user = new User({
-                            _id: new mongoose.Types.ObjectId(),
                             email,
                             password: hash,
                         });
