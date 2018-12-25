@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const mongooseAutoIncrementID = require('mongoose-auto-increment-reworked');
+
+const {MongooseAutoIncrementID} = mongooseAutoIncrementID;
 
 const {Schema} = mongoose;
 
 const UserSchema = new Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     email: {
         type: String,
         required: true,
@@ -14,6 +16,12 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
+});
+
+MongooseAutoIncrementID.initialise('UserIdCount');
+
+UserSchema.plugin(MongooseAutoIncrementID.plugin, {
+    modelName: 'User',
 });
 
 module.exports = mongoose.model('User', UserSchema);

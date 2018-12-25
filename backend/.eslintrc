@@ -6,8 +6,11 @@
     "env": {
         "browser": true,
         "node": true,
-        "mocha": true
+        "mocha": true,
+        "jest/globals": true
     },
+
+    "plugins": ["promise", "jest"],
 
     "rules": {
         "no-console": "error",
@@ -38,6 +41,7 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "semi": "error",
-        "global-require": "error"
+        "global-require": "error",
+        "promise/catch-or-return": "error"
     }
 }
