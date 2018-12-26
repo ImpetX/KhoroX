@@ -8,10 +8,9 @@ describe('Generate JSON web token', () => {
     let expectedJWT = null;
 
     beforeEach(() => {
-        const today = new Date();
-        const expirationDate = new Date(today);
+        const expirationDate = new Date();
 
-        expirationDate.setDate(today.getDate() + 60);
+        expirationDate.setDate(expirationDate.getDate() + 60);
 
         expectedJWT = jwt.sign({
             id,
@@ -22,5 +21,17 @@ describe('Generate JSON web token', () => {
 
     it(`Should return correct JWT when id is ${id} and email is ${email}`, () => {
         expect(generateJWT(id, email)).toEqual(expectedJWT);
+    });
+
+    it(`Should return false when id is 2 and email is ${email}`, () => {
+        expect(generateJWT(2, email)).not.toEqual(expectedJWT);
+    });
+
+    it(`Should return false when id is ${id} and email is test@test.co`, () => {
+        expect(generateJWT(id, 'test@test.co')).not.toEqual(expectedJWT);
+    });
+
+    it(`Should return false when id is 2 and email is test@test.co`, () => {
+        expect(generateJWT(2, 'test@test.co')).not.toEqual(expectedJWT);
     });
 });
