@@ -7,7 +7,7 @@ describe('Generate JSON web token', () => {
     const email = 'test@test.com';
     let expectedJWT = null;
 
-    beforeEach(() => {
+    beforeAll(() => {
         const expirationDate = new Date();
 
         expirationDate.setDate(expirationDate.getDate() + 60);
