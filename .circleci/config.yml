@@ -14,7 +14,7 @@ jobs:
           command: sudo npm i -g npm@5.7.1
       - run:
           name: go-to-backend-directory
-          command: cd backend
+          command: cd /home/circleci/khorox/backend
       - restore_cache:
           keys:
             - dependencies-cache-{{ checksum 'package.json' }}
