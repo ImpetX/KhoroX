@@ -1,1 +1,28 @@
+# JavaScript NodeJS CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+
 version: 2.0
+jobs:
+  build:
+    working_directory: ~/khorox/backend
+    docker:
+      - image: circleci/node:8.10.0
+    steps:
+      - checkout
+      - run:
+          name: install-global-npm-5.7.1
+          command: npm i -g npm@5.7.1 
+      - restore_cache:
+          keys:
+            - dependencies-cache-{{ checksum 'package.json' }}
+            - dependencies-cache-
+      - run:
+          name: install-npm-package
+          command: npm i
+      - save_cache:
+          key: dependency-cache-{{ checksum 'package.json' }}
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: npm test
