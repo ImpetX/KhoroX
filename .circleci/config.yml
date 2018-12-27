@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: install-global-npm-5.7.1
-          command: npm i -g npm@5.7.1 
+          command: sudo npm i -g npm@5.7.1 
       - restore_cache:
           keys:
             - dependencies-cache-{{ checksum 'package.json' }}
