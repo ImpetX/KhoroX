@@ -22,7 +22,7 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum 'package.json' }}
           paths:
-            - ./node_modules
+            - ./backend/node_modules
       - run:
           name: test
           command: cd backend && npm test
