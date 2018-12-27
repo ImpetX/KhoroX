@@ -12,20 +12,17 @@ jobs:
       - run:
           name: install-global-npm-5.7.1
           command: sudo npm i -g npm@5.7.1
-      - run:
-          name: go-to-backend-directory
-          command: cd /home/circleci/khorox/backend
       - restore_cache:
           keys:
             - dependencies-cache-{{ checksum 'package.json' }}
             - dependencies-cache-
       - run:
           name: install-npm-package
-          command: npm i
+          command: cd backend && npm i
       - save_cache:
           key: dependency-cache-{{ checksum 'package.json' }}
           paths:
             - ./node_modules
       - run:
           name: test
-          command: npm test
+          command: cd backend && npm test
