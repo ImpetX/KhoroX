@@ -22,7 +22,7 @@ jobs:
       - save_cache:
           key: v1-dependencies-cache-{{ checksum "./backend/package.json" }}
           paths:
-            - /home/circleci/khorox/backend/node_modules
+            - ~/khorox/backend/node_modules
       - run:
           name: test
           command: cd backend && npm test
