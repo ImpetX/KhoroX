@@ -20,7 +20,7 @@ jobs:
           name: install-npm-package
           command: cd backend && npm i
       - save_cache:
-          key: dependency-cache-{{ checksum "./backend/package.json" }}
+          key: dependencies-cache-{{ checksum "./backend/package.json" }}
           paths:
             - node_modules
       - run:
