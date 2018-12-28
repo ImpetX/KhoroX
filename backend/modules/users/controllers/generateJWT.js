@@ -1,16 +1,15 @@
 const jwt = require('jsonwebtoken');
 
 function generateJWT(id, email) {
-    const today = new Date();
-    const expirationDate = new Date(today);
+    const expirationDate = new Date();
 
-    expirationDate.setDate(today.getDate() + 60);
+    expirationDate.setDate(expirationDate.getDate() + 60);
 
-    return jwt.sign({
+    return Promise.resolve(jwt.sign({
         id,
         email,
         exp: parseInt(expirationDate.getTime() / 1000, 10),
-    }, 'secret');
+    }, 'secret'));
 }
 
 module.exports = generateJWT;
