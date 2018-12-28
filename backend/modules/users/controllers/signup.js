@@ -28,15 +28,15 @@ function signup(req, res) {
 
                         user
                             .save()
-                            .then(result => {
-                                const {id, email} = result;
+                            .then(result => Promise.all([result, generateJWT(result.id, result.email)]))
+                            .then(([result, token]) => {
                                 res
                                     .status(201)
                                     .json({
                                         user: {
-                                            _id: id,
-                                            email,
-                                            token: generateJWT(id, email),
+                                            id: result.id,
+                                            email: result.email,
+                                            token,
                                         },
                                     });
                             })
@@ -64,3 +64,15 @@ function signup(req, res) {
 }
 
 module.exports = signup;
+
+
+// const {id, email} = result;
+// res
+//     .status(201)
+//     .json({
+//         user: {
+//             _id: id,
+//             email,
+//             token: generateJWT(id, email),
+//         },
+//     });
