@@ -64,15 +64,3 @@ function signup(req, res) {
 }
 
 module.exports = signup;
-
-
-// const {id, email} = result;
-// res
-//     .status(201)
-//     .json({
-//         user: {
-//             _id: id,
-//             email,
-//             token: generateJWT(id, email),
-//         },
-//     });
