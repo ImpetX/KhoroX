@@ -14,15 +14,15 @@ jobs:
           command: sudo npm i -g npm@5.7.1
       - restore_cache:
           keys:
-            - dependencies-cache-{{ checksum "package.json" }}
+            - dependencies-cache-{{ checksum "./backend/package.json" }}
             - dependencies-cache-
       - run:
           name: install-npm-package
           command: cd backend && npm i
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "./backend/package.json" }}
           paths:
-            - ./backend/node_modules
+            - ./node_modules
       - run:
           name: test
           command: cd backend && npm test
