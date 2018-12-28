@@ -5,11 +5,11 @@ function generateJWT(id, email) {
 
     expirationDate.setDate(expirationDate.getDate() + 60);
 
-    return jwt.sign({
+    return Promise.resolve(jwt.sign({
         id,
         email,
         exp: parseInt(expirationDate.getTime() / 1000, 10),
-    }, 'secret');
+    }, 'secret'));
 }
 
 module.exports = generateJWT;
