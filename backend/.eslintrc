@@ -1,10 +1,10 @@
 {
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 9
     },
 
     "env": {
-        "browser": true,
+        "browser": false,
         "node": true,
         "mocha": true,
         "jest/globals": true
