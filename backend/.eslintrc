@@ -1,10 +1,10 @@
 {
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 9
     },
 
     "env": {
-        "browser": true,
+        "browser": false,
         "node": true,
         "mocha": true,
         "jest/globals": true
@@ -42,6 +42,7 @@
         "prefer-template": "error",
         "semi": "error",
         "global-require": "error",
-        "promise/catch-or-return": "error"
+        "promise/catch-or-return": "error",
+        "promise/no-new-statics": "error"
     }
 }
