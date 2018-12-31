@@ -42,6 +42,7 @@
         "prefer-template": "error",
         "semi": "error",
         "global-require": "error",
-        "promise/catch-or-return": "error"
+        "promise/catch-or-return": "error",
+        "promise/no-new-statics": "error"
     }
 }
