@@ -24,5 +24,8 @@ jobs:
           paths:
             - ~/khorox/backend/node_modules
       - run:
+          name: eslint
+          command: cd backend && npm run eslint
+      - run:
           name: test
           command: cd backend && npm test
