@@ -13,15 +13,18 @@ app.set('views', `${__dirname}/views`);
 mongoose.connect(config.DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
-});
+})
+    .then(() => {
+        // eslint-disable-next-line no-console
+        console.log(`mongoose connected at ${config.DB_URL}`);
+    }).catch(err => {
+        // eslint-disable-next-line no-console
+        console.error(err);
+    });
+
 mongoose.set('debug', true);
 
 app = serverConfig(app);
-
-mongoose.connection.on('open', () => {
-    // eslint-disable-next-line no-console
-    console.log(`mongoose connected at ${config.DB_URL}`);
-});
 
 const server = http.createServer(app);
 
