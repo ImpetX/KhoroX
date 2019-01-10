@@ -40,12 +40,13 @@ const shutdown = () => {
 };
 
 if(require.main === module) {
-    boot();
+    app.listen(app.get('port'), () => {
+        // eslint-disable-next-line no-console
+        console.log(`Server up: http://localhost:${app.get('port')}`);
+    });
 } else {
     // eslint-disable-next-line no-console
     console.info('running app for testing');
 
-    exports.boot = boot;
-    exports.shutdown = shutdown;
-    exports.port = app.get('port');
+    module.exports = app;
 }
