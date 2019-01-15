@@ -1,18 +1,21 @@
+const http = require('http');
 const signup = require('../controllers/signup');
-const server = require('../../../server');
-
-const {boot, shutdown} = server;
+const app = require('../../../server');
 
 describe('Sign up controller', () => {
-    beforeAll(() => {
-        return Promise.resolve(boot());
+    let server;
+
+    beforeAll(done => {
+        server = http.createServer(app);
+
+        server.listen(done);
     });
 
     test('dummy test', () => {
         expect(1).toEqual(1);
     });
 
-    // afterAll(async () => {
-    //     shutdown();
-    // });
+    afterAll(done => {
+        server.close(done);
+    });
 });
