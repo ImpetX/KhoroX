@@ -1,4 +1,3 @@
-const http = require('http');
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -25,19 +24,6 @@ mongoose.connect(config.DB_URL, {
 mongoose.set('debug', true);
 
 app = serverConfig(app);
-
-const server = http.createServer(app);
-
-const boot = () => {
-    server.listen(app.get('port'), () => {
-        // eslint-disable-next-line no-console
-        console.log(`Server up: http://localhost:${app.get('port')}`);
-    });
-};
-
-const shutdown = () => {
-    server.close(process.exit);
-};
 
 if(require.main === module) {
     app.listen(app.get('port'), () => {
