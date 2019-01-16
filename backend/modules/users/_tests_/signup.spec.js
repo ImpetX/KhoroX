@@ -1,4 +1,6 @@
 const http = require('http');
+const mongoose = require('mongoose');
+
 const signup = require('../controllers/signup');
 const app = require('../../../server');
 
@@ -17,5 +19,6 @@ describe('Sign up controller', () => {
 
     afterAll(done => {
         server.close(done);
+        mongoose.connection.close(done);
     });
 });
