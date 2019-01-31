@@ -30,7 +30,12 @@ describe('Sign up controller', () => {
     });
 
     it('Should send response {"duplicateEmail": true} if the provided email address is already existing', () => {
-        
+        const user = new User({
+            email: 'test@test.com',
+            password: '1',
+        });
+
+        return user.save();
     });
 
     afterEach(done => {
@@ -38,6 +43,7 @@ describe('Sign up controller', () => {
     });
 
     afterAll(done => {
+        mongoose.connection.dropDatabase(done);
         mongoose.connection.close(done);
     });
 });
