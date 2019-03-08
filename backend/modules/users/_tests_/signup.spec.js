@@ -1,17 +1,9 @@
 const http = require('http');
 const mongoose = require('mongoose');
 
-const signup = require('../controllers/signup');
 const User = require('../models');
 const app = require('../../../server');
 const {DB_URL_TEST} = require('../../../config/localhost.json');
-
-function requestBody(email, password) {
-    return {
-        email,
-        password,
-    };
-}
 
 describe('Sign up controller', () => {
     let server;
