@@ -13,7 +13,7 @@ function create(req, res) {
 
     Expense
         .save()
-        .then(data => {
+        .then(() => {
             return res
                 .status(200)
                 .json({

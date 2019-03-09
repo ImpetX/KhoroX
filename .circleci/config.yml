@@ -7,6 +7,7 @@ jobs:
     working_directory: ~/khorox
     docker:
       - image: circleci/node:8.10.0
+      - image: circleci/mongo:4.0.1-bionic
     steps:
       - checkout
       - run:

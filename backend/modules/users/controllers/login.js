@@ -19,7 +19,7 @@ function login(req, res, next) {
         });
     }
 
-    return passport.authenticate('local', {session: false}, (err, passportUser, info) => {
+    return passport.authenticate('local', {session: false}, (err, passportUser) => {
         if(err) {
             return next(err);
         }

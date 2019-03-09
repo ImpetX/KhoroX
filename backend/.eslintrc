@@ -41,7 +41,9 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "semi": "error",
+        "no-unused-vars": "error",
         "global-require": "error",
+        "no-unneeded-ternary": "error",
         "promise/catch-or-return": "error",
         "promise/no-new-statics": "error"
     }
