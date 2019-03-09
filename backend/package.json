@@ -27,7 +27,7 @@
     "nodemon": "^1.17.4"
   },
   "dependencies": {
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "errorhandler": "^1.5.0",
