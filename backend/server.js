@@ -27,6 +27,11 @@ if(require.main === module) {
 
 app = serverConfig(app);
 
+process.on('unhandledRejection', (reason, p) => {
+    // eslint-disable-next-line no-console
+    console.log(`Unhandled rejection at ${p} and the reason is ${reason}`);
+});
+
 if(require.main === module) {
     app.listen(app.get('port'), () => {
         // eslint-disable-next-line no-console
