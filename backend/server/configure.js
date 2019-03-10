@@ -3,6 +3,7 @@ const session = require('express-session');
 const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
 
 const routes = require('./routes');
 const customErrorHandler = require('./errorhandler');
@@ -15,6 +16,7 @@ const corsOptions = {
 };
 
 module.exports = app => {
+    app.use(helmet());
     app.options('*', cors(corsOptions));
     app.use(cors(corsOptions));
     app.use(morgan('dev'));
