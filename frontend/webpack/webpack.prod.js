@@ -8,6 +8,8 @@ var merge = require('webpack-merge');
 var common = require('./webpack.common.js');
 
 var config = merge(common, {
+    mode: 'production',
+
     /*
         best option for development::
         devtool: 'cheap-module-eval-source-map'
