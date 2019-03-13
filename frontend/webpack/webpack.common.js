@@ -6,11 +6,6 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
-// the path(s) that should be cleaned
-var pathsToClean = [
-    'public'
-]
-
 // the clean options to use
 var cleanOptions = {
     root: path.resolve(__dirname, '../'),
@@ -56,28 +51,12 @@ var config = {
     },
 
     plugins: [
-        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+        new CleanWebpackPlugin(cleanOptions),
 
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             reportFilename: 'webpack-bundle-report.html',
             openAnalyzer: false
-        }),
-
-        // building all the 3rd party modules into vendor js
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks(module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            },
-        }),
-
-        /*
-        Generating a seperate file for webpack runtime code.
-        this file must be loaded first via script tag
-        */
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest'
         }),
 
         new ExtractTextPlugin({
