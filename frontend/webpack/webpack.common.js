@@ -3,7 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // the clean options to use
@@ -50,6 +50,19 @@ var config = {
         ]
     },
 
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'main',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                }
+            }
+        }
+    },
+
     plugins: [
         new CleanWebpackPlugin(cleanOptions),
 
@@ -59,9 +72,8 @@ var config = {
             openAnalyzer: false
         }),
 
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            allChunks: true
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
         })
     ]
 };
