@@ -1,7 +1,6 @@
 /* eslint no-var: "off" */
 
 var path = require('path');
-var webpack = require('webpack');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');

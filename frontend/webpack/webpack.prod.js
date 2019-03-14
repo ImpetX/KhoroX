@@ -1,9 +1,7 @@
 /* eslint no-var: "off" */
 
 var path = require('path');
-var webpack = require('webpack');
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var merge = require('webpack-merge');
 var common = require('./webpack.common.js');
 
