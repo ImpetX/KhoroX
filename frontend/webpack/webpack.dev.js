@@ -2,11 +2,13 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var merge = require('webpack-merge');
 var common = require('./webpack.common.js');
 
 var config = merge(common, {
+    mode: 'development',
+
     /*
         best option for development::
         devtool: 'cheap-module-eval-source-map'
@@ -27,43 +29,37 @@ var config = merge(common, {
         rules: [
             {
                 test: /\.(css|scss)?$/,
-                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract(
+                use: [
+                    'css-hot-loader',
+                    MiniCssExtractPlugin.loader,
                     {
-                        fallback: "style-loader",
-                        use: [
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    sourceMap: true
-                                }
-                            },
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
 
-                            {
-                                loader: 'sass-loader',
-                                options: {
-                                    sourceMap: true
-                                }
-                            },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
 
-                            {
-                                loader: 'postcss-loader',
-                                options: {
-                                    sourceMap: true
-                                }
-                            }
-                        ]
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true
+                        }
                     }
-                ))
-            }
+                ]
+            },
         ]
     },
 
     plugins: [
         // enable HMR globally
-        new webpack.HotModuleReplacementPlugin(),
-
-        // prints more readable module names in the browser console on HMR updates
-        new webpack.NamedModulesPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 });
 

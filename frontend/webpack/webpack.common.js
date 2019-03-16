@@ -1,15 +1,9 @@
 /* eslint no-var: "off" */
 
 var path = require('path');
-var webpack = require('webpack');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-
-// the path(s) that should be cleaned
-var pathsToClean = [
-    'public'
-]
 
 // the clean options to use
 var cleanOptions = {
@@ -55,8 +49,21 @@ var config = {
         ]
     },
 
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'main',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                }
+            }
+        }
+    },
+
     plugins: [
-        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+        new CleanWebpackPlugin(cleanOptions),
 
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
@@ -64,25 +71,8 @@ var config = {
             openAnalyzer: false
         }),
 
-        // building all the 3rd party modules into vendor js
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks(module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            },
-        }),
-
-        /*
-        Generating a seperate file for webpack runtime code.
-        this file must be loaded first via script tag
-        */
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest'
-        }),
-
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            allChunks: true
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
         })
     ]
 };
