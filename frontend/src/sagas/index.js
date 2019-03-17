@@ -4,7 +4,7 @@ import watchAddExpenseSaga from './expense/add';
 
 function* rootSaga() {
     yield all([
-        call(watchAddExpenseSaga)
+        call(watchAddExpenseSaga),
     ]);
 }
 

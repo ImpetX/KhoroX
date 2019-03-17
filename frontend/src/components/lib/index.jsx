@@ -3,5 +3,5 @@ import Text from './Text/Text';
 
 export {
     NavbarLogo,
-    Text
+    Text,
 };

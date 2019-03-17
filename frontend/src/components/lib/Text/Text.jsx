@@ -13,17 +13,17 @@ const Text = (props) => {
         'Text--14px': fontSize === '14',
         'Text--16px': fontSize === '16',
     });
-    return <span className={classes}>{label}</span>
+    return <span className={classes}>{label}</span>;
 };
 
 Text.propTypes = {
     label: PropTypes.string,
-    fontSize: PropTypes.oneOf(['12', '14', '16'])
+    fontSize: PropTypes.oneOf(['12', '14', '16']),
 };
 
 Text.defaultProps = {
     label: '',
-    fontSize: '16'
+    fontSize: '16',
 };
 
 export default Text;

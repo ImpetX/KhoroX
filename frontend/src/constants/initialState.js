@@ -4,10 +4,10 @@ const initialState = {
         item: {
             name: '',
             price: 0,
-            amountPurchased: 0
+            amountPurchased: 0,
         },
-        error: null
-    }
+        error: null,
+    },
 };
 
 export default initialState;

@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {AppContainer} from 'react-hot-loader'
+import {AppContainer} from 'react-hot-loader';
 
 import store from './store/store';
 import './styles/main.scss';
@@ -16,8 +16,8 @@ const render = Component => {
             </Provider>
         </AppContainer>,
         document.getElementById('app'),
-    )
-}
+    );
+};
 
 render(App);
 
@@ -27,6 +27,7 @@ if (module.hot) {
         // if you are using harmony modules ({modules:false})
         render(App);
         // in all other cases - re-require App manually
+        // eslint-disable-next-line global-require
         render(require('./components/App'));
-    })
+    });
 }
