@@ -4,7 +4,7 @@ import {
     Button,
     Form,
     FormGroup,
-    Label
+    Label,
 } from 'reactstrap';
 import {connect} from 'react-redux';
 
@@ -17,7 +17,7 @@ import {Actions} from '../../constants';
 @connect(state => state)
 export default class ExpenseAdd extends Component {
     static propTypes = {
-        dispatch: PropTypes.any
+        dispatch: PropTypes.any,
     };
 
     constructor(props) {
@@ -37,12 +37,12 @@ export default class ExpenseAdd extends Component {
         const payload = {
             itemName:  this.getInputValue('itemName'),
             itemPrice: this.getInputValue('itemPrice', true),
-            amountPurchased: this.getInputValue('amountPurchased', true)
+            amountPurchased: this.getInputValue('amountPurchased', true),
         };
 
         this.props.dispatch({
             type: Actions.ADD_EXPENSE_REQUEST,
-            payload
+            payload,
         });
     }
 

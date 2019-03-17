@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {AppContainer} from 'react-hot-loader'
+import {AppContainer} from 'react-hot-loader';
 
 import store from './store/store';
 import './styles/main.scss';
@@ -16,8 +16,8 @@ const render = Component => {
             </Provider>
         </AppContainer>,
         document.getElementById('app'),
-    )
-}
+    );
+};
 
 render(App);
 
@@ -28,5 +28,5 @@ if (module.hot) {
         render(App);
         // in all other cases - re-require App manually
         render(require('./components/App'));
-    })
+    });
 }

@@ -1,7 +1,7 @@
 import {
     createStore,
     applyMiddleware,
-    compose
+    compose,
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 

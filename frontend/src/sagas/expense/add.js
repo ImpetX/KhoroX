@@ -1,7 +1,7 @@
 import {
     call,
     put,
-    takeLatest
+    takeLatest,
 } from 'redux-saga/effects';
 import axios from 'axios';
 

@@ -10,7 +10,7 @@ const Container = props => {
         children} = props;
 
     const classes = classNames({
-        'Container--center': align === 'center'
+        'Container--center': align === 'center',
     });
 
     return (
@@ -24,12 +24,12 @@ const Container = props => {
 Container.propTypes = {
     maxWidth: PropTypes.string,
     align: PropTypes.oneOf(['left', 'center']),
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 };
 
 Container.defaultProps = {
     maxWidth: 'auto',
-    align:  'left'
+    align:  'left',
 };
 
 export default Container;

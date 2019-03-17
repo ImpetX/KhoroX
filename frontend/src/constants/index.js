@@ -3,5 +3,5 @@ import initialState from './initialState';
 
 export {
     Actions,
-    initialState
+    initialState,
 };

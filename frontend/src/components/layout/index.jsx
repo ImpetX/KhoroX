@@ -3,5 +3,5 @@ import PageContainer from './PageContainer';
 
 export {
     NavigationBar,
-    PageContainer
+    PageContainer,
 };
