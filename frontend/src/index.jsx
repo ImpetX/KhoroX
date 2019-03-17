@@ -27,6 +27,7 @@ if (module.hot) {
         // if you are using harmony modules ({modules:false})
         render(App);
         // in all other cases - re-require App manually
+        // eslint-disable-next-line global-require
         render(require('./components/App'));
     });
 }

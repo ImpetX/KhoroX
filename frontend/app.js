@@ -23,7 +23,7 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.use(webpackHotMiddleware(compiler, {
-    log: console.log,
+    log: console.log, // eslint-disable-line no-console
     path: '/__webpack_hmr',
     heartbeat: 10 * 1000,
 }));
@@ -42,7 +42,9 @@ app.get('*', (req, res, next) => {
     next(err);
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
+    // eslint-disable-next-line no-console
     console.error(err.message);
 
     if (!err.statusCode) {
@@ -52,10 +54,12 @@ app.use((err, req, res, next) => {
     if (err.shouldRedirect) {
         res.render('error');
     } else {
+        // eslint-disable-next-line no-console
         console.error(err.statusCode);
     }
 });
 
 app.listen(app.get('port'), () => {
+    // eslint-disable-next-line no-console
     console.log(`Server up: http://localhost:${app.get('port')}`);
 });
