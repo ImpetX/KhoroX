@@ -1,27 +1,24 @@
-/* eslint no-var: "off" */
-
-var path = require('path');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // the clean options to use
-var cleanOptions = {
+const cleanOptions = {
     root: path.resolve(__dirname, '../'),
-    verbose: true
-}
+    verbose: true,
+};
 
-var config = {
-
+const config = {
     resolve: {
         extensions: [
-            '.js', '.jsx', '.css', '.scss', '.json'
+            '.js', '.jsx', '.css', '.scss', '.json',
         ],
 
         modules: [
             'node_modules',
-            path.resolve(__dirname, '../src')
-        ]
+            path.resolve(__dirname, '../src'),
+        ],
     },
 
     output: {
@@ -29,7 +26,7 @@ var config = {
         filename: '[name].js',
         // chunkFilename is required for CommonsChunkPlugin
         chunkFilename: '[name].js',
-        publicPath: '/assets/' // match the output `publicPath`
+        publicPath: '/assets/', // match the output `publicPath`
     },
 
     module: {
@@ -38,15 +35,15 @@ var config = {
                 test: /\.jsx?$/,
                 include: path.join(__dirname, '../src'),
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
 
             },
 
             {
                 test: /\.(jpg|png|svg|ttf|woff|woff2|otf)?$/,
-                loader: 'url-loader?limit=10000'
-            }
-        ]
+                loader: 'url-loader?limit=10000',
+            },
+        ],
     },
 
     optimization: {
@@ -56,10 +53,10 @@ var config = {
                     name: 'main',
                     test: /\.css$/,
                     chunks: 'all',
-                    enforce: true
-                }
-            }
-        }
+                    enforce: true,
+                },
+            },
+        },
     },
 
     plugins: [
@@ -68,13 +65,13 @@ var config = {
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             reportFilename: 'webpack-bundle-report.html',
-            openAnalyzer: false
+            openAnalyzer: false,
         }),
 
         new MiniCssExtractPlugin({
             filename: "[name].css",
-        })
-    ]
+        }),
+    ],
 };
 
 module.exports = config;
