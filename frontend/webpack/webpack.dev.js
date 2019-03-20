@@ -1,10 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+/* eslint no-var: "off" */
 
-const config = merge(common, {
+var path = require('path');
+var webpack = require('webpack');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var merge = require('webpack-merge');
+var common = require('./webpack.common.js');
+
+var config = merge(common, {
     mode: 'development',
 
     /*
@@ -19,8 +21,8 @@ const config = merge(common, {
         main: [
             'react-hot-loader/patch',  // activate HMR for React
             'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-            path.resolve(__dirname, '../src/index.jsx'),
-        ],
+            path.resolve(__dirname, '../src/index.jsx')
+        ]
     },
 
     module: {
@@ -34,31 +36,31 @@ const config = merge(common, {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
-                        },
+                        }
                     },
 
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: true,
-                        },
+                            sourceMap: true
+                        }
                     },
 
                     {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: true,
-                        },
-                    },
-                ],
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
-        ],
+        ]
     },
 
     plugins: [
         // enable HMR globally
-        new webpack.HotModuleReplacementPlugin(),
-    ],
+        new webpack.HotModuleReplacementPlugin()
+    ]
 });
 
 module.exports = config;
