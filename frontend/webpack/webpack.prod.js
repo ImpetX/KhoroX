@@ -1,9 +1,11 @@
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+/* eslint no-var: "off" */
 
-const config = merge(common, {
+var path = require('path');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var merge = require('webpack-merge');
+var common = require('./webpack.common.js');
+
+var config = merge(common, {
     mode: 'production',
 
     /*
@@ -16,8 +18,8 @@ const config = merge(common, {
 
     entry: {
         main: [
-            path.resolve(__dirname, '../src/index.jsx'),
-        ],
+            path.resolve(__dirname, '../src/index.jsx')
+        ]
     },
 
     module: {
@@ -31,25 +33,25 @@ const config = merge(common, {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
-                        },
+                        }
                     },
 
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: true,
-                        },
+                            sourceMap: true
+                        }
                     },
 
                     {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: true,
-                        },
-                    },
-                ],
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
-        ],
+        ]
     },
 });
 
