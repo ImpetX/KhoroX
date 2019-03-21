@@ -9,7 +9,8 @@
     "dev": "webpack --config webpack/webpack.dev.js --profile --progress -w",
     "prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --profile --progress",
     "eslint": "eslint app.js --ext .jsx --ext .js src",
-    "eslint:autofix": "eslint app.js --fix --ext .jsx --ext .js src"
+    "eslint:autofix": "eslint app.js --fix --ext .jsx --ext .js src",
+    "count-files": "node ./tasks/count-files.js"
   },
   "keywords": [
     "React",
