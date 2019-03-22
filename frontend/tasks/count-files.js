@@ -8,18 +8,39 @@ const dir = './src';
 
 async function gatherFiles(dir) {
     try {
+        let fileMetada = {
+            previousDir: '',
+            currentDir: dir,
+        };
+
         let result = [];
 
-        const files = await readdir(dir);
+        while(true) {
+            const files = await readdir(fileMetada.currentDir);
+            let trackFiles = [...files];
 
-        for(const file of files) {
-            const stats = await stat(`${dir}/${file}`);
+            fileMetada.previousDir = fileMetada.currentDir;
 
-            if(!stats.isDirectory()) {
-                result.push(file);
+            for(const file of files) {
+                fileMetada.currentDir = `${fileMetada.previousDir}/${file}`;
+
+                const fileStats = await stat(fileMetada.currentDir);
+
+                if(!fileStats.isDirectory()) {
+                    result.push(file);
+
+                    trackFiles = trackFiles.filter(trackFile => trackFile !== file);
+                }
             }
+
+            if(trackFiles.length) {
+                continue;
+            }
+
+            break;
         }
 
+        console.log(`fileMetadata..${JSON.stringify(fileMetada, null, 2)}`);
         return result;
     } catch(error) {
         return Promise.reject(error);
