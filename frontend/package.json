@@ -73,6 +73,7 @@
     "postcss": "^6.0.17",
     "postcss-loader": "^3.0.0",
     "react-hot-loader": "^4.8.0",
+    "recursive-readdir": "^2.2.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
