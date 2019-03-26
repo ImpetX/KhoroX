@@ -23,7 +23,7 @@ const config = merge(common, {
 
     entry: {
         main: [
-            'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+            'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&overlay=false',
             path.resolve(__dirname, '../src/index.jsx'),
         ],
     },
