@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
-    publicPath: '/assets/',
+    publicPath: webpackConfig.output.publicPath,
     stats: {
         colors: true,
     },
