@@ -15,16 +15,29 @@ const config = merge(common, {
     */
     devtool: 'source-map',
 
+    resolve: {
+        alias: {
+            'react-dom': '@hot-loader/react-dom',
+        },
+    },
+
     entry: {
         main: [
-            'react-hot-loader/patch',  // activate HMR for React
-            'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+            'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&overlay=false',
             path.resolve(__dirname, '../src/index.jsx'),
         ],
     },
 
     module: {
         rules: [
+            {
+                test: /\.(js|jsx)?$/,
+                include: path.join(__dirname, '../src'),
+                exclude: /node_modules/,
+                loader: 'react-hot-loader/webpack',
+
+            },
+
             {
                 test: /\.(css|scss)?$/,
                 use: [

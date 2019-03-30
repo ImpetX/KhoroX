@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
-    publicPath: '/assets/',
+    publicPath: webpackConfig.output.publicPath,
     stats: {
         colors: true,
     },
@@ -25,7 +25,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler, {
     log: console.log, // eslint-disable-line no-console
     path: '/__webpack_hmr',
-    heartbeat: 10 * 1000,
+    heartbeat: 10000,
 }));
 
 app.use('/assets', express.static(path.join(__dirname, '/public')));
